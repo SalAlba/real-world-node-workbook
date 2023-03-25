@@ -505,20 +505,16 @@ Analyze the file that was generated.
 
 Create **src/sqlArticleRepository.ts** with the following starter code:
 ```typescript
-import {ArticleRepository} from "./article";
-import {Kysely} from "kysely";
-import {DB} from "./dbTypes";
+import { ArticleRepository } from "./article";
+import { Kysely } from "kysely";
+import { DB } from "./dbTypes";
 
 export const sqlArticleRepository = (db: Kysely<DB>): ArticleRepository => {
-
-  return {
-    async create(article) {
-    },
-    async update(article) {
-    },
-    async findBySlug(slug) {
-    },
-  };
+    return {
+        async create(article) {},
+        async update(article) {},
+        async findBySlug(slug) {},
+    };
 };
 ```
 We can live code the implementation together.
@@ -583,8 +579,8 @@ const articleRepository = process.env.DATABASE_URL ? sqlArticleRepository(create
 
 Test the setting by changing **package.json**
 ```
-    "start": "DATABASE_URL=postgres://unleash_user:passord@localhost:5432/articles ts-node src/server.ts",
-    "test": "DATABASE_URL=postgres://unleash_user:passord@localhost:5432/articles mocha 'src/**/*.test.ts'",
+    "start": "DATABASE_URL=postgres://user:secret@localhost:5432/conduit ts-node src/server.ts",
+    "test": "DATABASE_URL=postgres://user:secret@localhost:5432/conduit mocha 'src/**/*.test.ts'",
 ```
 
 There's a problem in the test command. In the SQL mode the id of article is expected to be `uuid`.
