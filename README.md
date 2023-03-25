@@ -1084,6 +1084,22 @@ A trainer will turn the flag on in the meantime.
 Before our toggle client is ready it needs to fetch toggles configuration over HTTP. It's not instant. 
 How would you **inject those asynchronous dependencies into out dependency graph**?
 
+To get you started I recommend to hide toggle client selection in **src/shared/createToggleClient.ts**:
+```typescript
+import { Config } from "../config";
+import { createInMemoryToggleClient } from "./inMemoryToggleClient";
+import { createHttpToggleClient } from "./httpToggleClient";
+
+export const createToggleClient = async (
+  config: Config,
+  overrideFeatures = [] as string[]
+) =>
+  config.TOGGLE_API && config.TOGGLE_CLIENT_KEY
+    ? await createHttpToggleClient(config.TOGGLE_API, config.TOGGLE_CLIENT_KEY)
+    : createInMemoryToggleClient(overrideFeatures);
+
+```
+
 ## Avoiding N+1 queries
 
 ![N + 1 query problem](./images/n_queries.png)
