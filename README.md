@@ -913,7 +913,7 @@ Run your tests to verify if everything works both with SQL and in-memory variant
 
 ## Implementing view model (external read model)
 
-Add `favoritesCount` file in **app.test.ts**: 
+Add `favoritesCount` file in **src/app.test.ts**: 
 ```typescript
     assert.deepStrictEqual(
       omit(articleResult.body.article, "createdAt", "updatedAt"),
