@@ -735,7 +735,7 @@ Then put all the shared code into **shared** dir and all error handling related 
 
 ![Technology-driven inside business-driven](./images/driven.png)
 
-Once we're done with the feature-driven organization we can go inside article dir and organize code around technical
+Once we're done with the feature-driven organization we can go inside the article dir and organize code around technical
 responsibilities:
 * **api**
 * **application**
