@@ -710,6 +710,7 @@ export const createArticlesRouter = ({
 
 Hints:
 * create `CreateArticle` and `UpdateArticle` types in **createArticle.ts** and **updateArticle.ts**
+* create **articlesCompositionRoot.ts** and put SQL and in-memory composition roots there
 
 ## Organizing code into directories: feature-driven architecture
 
