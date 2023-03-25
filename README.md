@@ -380,7 +380,7 @@ Here's a helpful `Docker` command to spin up `PostgreSQL` locally:
 ```dockerfile
 docker run -e POSTGRES_PASSWORD=secret \
   -e POSTGRES_USER=user -e POSTGRES_DB=conduit \
-  --name conduit postgres
+  --name conduit -d postgres
 ```
 
 Try to connect to the DB with a client app (e.g. `pgAdmin`).
