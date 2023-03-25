@@ -721,7 +721,8 @@ Technology driven-architectures lead to the [shotgun surgery](https://refactorin
 ![Shotgun surgery](./images/shotgun.png)
 
 Adding/deleting a feature requires touching many unrelated directories.
-**Deleting a feature should be just a deletion of a directory**.
+
+**Deleting a feature should be just a deletion of a single directory**.
 
 I like to organize my **code around business capabilities first** and around technical responsibilities second.
 
