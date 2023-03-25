@@ -874,7 +874,7 @@ Where would you store the total count of favorites for an article?
 What DB schema modifictions would you make?
 Where would you put it in our model in code?
 
-As you're deciding where to put favorite a trainer will provider some code.
+As you're deciding where to put favorite, a trainer will provide some code.
 
 ## Introducing internal read model
 
