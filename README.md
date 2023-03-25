@@ -1170,7 +1170,7 @@ We don't know the implications of the DB query performance, and we want to roll 
     ]);
 });
 it("Get all tags hidden", async function () {
-    const toggleClient = await createToggleClient(config, ["articleTags"]);
+    const toggleClient = await createToggleClient(config);
     const { app, clean } = createApp(config, toggleClient);
     const request = httpClient(app);
     await clean();
