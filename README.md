@@ -1150,9 +1150,7 @@ Implement GET `/api/tags` that returns all tags from all articles. Keep it behin
 We don't know the implications of the DB query performance, and we want to roll it out to 1% of our users.
 ```typescript
   it("Get all tags", async function () {
-    const toggleClient = await createToggleClient({} as Config, [
-        "articleTags",
-    ]);
+    const toggleClient = await createToggleClient(config, ["articleTags"]);
     const { app, clean } = createApp(config, toggleClient);
     const request = httpClient(app);
     await clean();
@@ -1172,7 +1170,7 @@ We don't know the implications of the DB query performance, and we want to roll 
     ]);
 });
 it("Get all tags hidden", async function () {
-    const toggleClient = await createToggleClient({} as Config, []);
+    const toggleClient = await createToggleClient(config, ["articleTags"]);
     const { app, clean } = createApp(config, toggleClient);
     const request = httpClient(app);
     await clean();
