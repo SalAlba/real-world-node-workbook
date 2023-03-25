@@ -977,7 +977,7 @@ Go to **src/app.test.ts** and fix all operations that should redirect:
     }).redirects(1);
 ```
 
-## Type-safe paths
+## Making paths type-safe 
 
 ![Type-safe paths](./images/type_safe_paths.png)
 
@@ -1047,12 +1047,12 @@ Inject the toggle client into `articlesRoutes` so that we can control which feat
 For more complicated scenarios it'd be nice to control available features from an **external toggle client**.
 It allows to **switch the system behavior instantly without a redeployment**.
 
-Create real toggle client at **src/shared/realToggleClient.ts**:
+Create HTTP toggle client at **src/shared/httpToggleClient.ts**:
 ```typescript
 import { Unleash } from "unleash-client";
 import { ToggleClient } from "./toggleClient";
 
-export const createUnleashToggleClient = async (
+export const createHttpToggleClient = async (
     url: string,
     clientKey: string
 ): Promise<ToggleClient> => {
