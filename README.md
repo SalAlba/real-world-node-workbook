@@ -316,7 +316,7 @@ Update our **src/createArticle.test.ts** and inject a fixed date/time clock so t
 
 ![Zod](./images/zod.png)
 
-`createArticle` accepts `ArticleInput` type. Check what type we get at the method call site?
+`createArticle` accepts `ArticleInput` type. Check what type we get at the method call site in the `articlesRouter`?
 
 Create **src/parseArticleInput.ts**
 ```ts
@@ -339,7 +339,7 @@ const input = ArticleInput.parse(req.body.article);
 ```
 What are the types now? 
 
-Go and update `createArticle.ts` to use the ArticleInput from zod. 
+Go and update `createArticle.ts` to use the `ArticleInput` from `zod`. 
 
 [Parsing libraries are much better than validation libraries](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/) because parsers give us **compile time type checking based on runtime schemas**.
 In modern software development we **don't have to write those DTOs by hand**.
@@ -350,7 +350,7 @@ In modern software development we **don't have to write those DTOs by hand**.
 
 Try adding this test case to **src/app.test.ts**
 ```ts
-    const failedArticle = await createArticle(
+const failedArticle = await createArticle(
     request,
     // @ts-ignore
     {
@@ -361,7 +361,7 @@ Try adding this test case to **src/app.test.ts**
 
 assert.deepStrictEqual(failedArticle.body.errors.length, 4);
 ```
-Our contract for invalid input data will be **422 HTTP status code** and input parsing errors from zod.
+Our contract for invalid input data will be **422 HTTP status code** and input parsing errors from `zod`.
 
 Try to think how we can handle this error. Where would you put the error handling logic?
 
