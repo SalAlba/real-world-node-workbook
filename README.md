@@ -809,12 +809,13 @@ to the factory `fn` function and calls the result with the args.
 
 Currently, in our system every application service method is a singleton and is created once at the application startup time.
 
+**src/article/application/articlesCompositionRoot.ts**
 ```typescript
   const articleRepository = sqlArticleRepository(db);
   const create = createArticle(articleRepository, articleIdGenerator, clock);
   const update = updateArticle(articleRepository, clock);
 ```
-First, we construct a singleton article repository that we inject to get a singleton create and update methods.
+First, we construct a singleton article repository.  Then we inject it to get a singleton create and singleton update methods.
 
 To support transactions we need to create a new mini graph of objects for each application service method.
 
@@ -867,7 +868,7 @@ After passing current `tx` to the factory functions we'll get transactional `cre
 ![Favorite](images/favorite.png)
 
 If you check https://hyperapp.netlify.app/ there's a favorite/unfavorite icon. In our  simplified version we don't track
-who liked the article, just the total count. 
+who favorited the article, just the total count. 
 
 Where would you store the total count of favorites for an article?
 What DB schema modifictions would you make?
