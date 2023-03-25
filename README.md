@@ -378,7 +378,7 @@ Time to persist our articles in a real database.
 
 Here's a helpful `Docker` command to spin up `PostgreSQL` locally:
 ```dockerfile
-docker run -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=user -e POSTGRES_DB=conduit --name conduit -d postgres
+docker run -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=user -e POSTGRES_DB=conduit --name conduit -d -p 5432:5432 postgres
 ```
 
 Try to connect to the DB with a client app (e.g. `pgAdmin`).
