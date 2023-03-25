@@ -1151,7 +1151,7 @@ We don't know the implications of the DB query performance, and we want to roll 
 ```typescript
   it("Get all tags", async function () {
     const toggleClient = await createToggleClient({} as Config, [
-      "articleTags",
+        "articleTags",
     ]);
     const { app, clean } = createApp(config, toggleClient);
     const request = httpClient(app);
@@ -1164,14 +1164,44 @@ We don't know the implications of the DB query performance, and we want to roll 
     const tags = await getTags(request);
 
     assert.deepStrictEqual(tags.body.tags, [
-      "tag1",
-      "tag2",
-      "tag3",
-      "tag4",
-      "tag5",
+        "tag1",
+        "tag2",
+        "tag3",
+        "tag4",
+        "tag5",
     ]);
-  });
+});
+it("Get all tags hidden", async function () {
+    const toggleClient = await createToggleClient({} as Config, []);
+    const { app, clean } = createApp(config, toggleClient);
+    const request = httpClient(app);
+    await clean();
 
+    await createArticleWithTags(request, ["tag1", "tag2"], 302);
+    await createArticleWithTags(request, ["tag2", "tag3"], 302);
+    await createArticleWithTags(request, ["tag4", "tag5"], 302);
+
+    await getTags(request, 404);
+});
+```
+
+We want to use helper method that exposes only the test data that we care about - tags.
+```typescript
+const createArticleWithTags = (request: Request, tags: Tag[], status = 200) =>
+  request
+    .post(articlesPath({}))
+    .send({
+      article: {
+        title: "The title" + Math.random(),
+        description: "description",
+        tagList: tags,
+        body: "body",
+      },
+    })
+    .expect(status);
+
+const getTags = (request: Request, status = 200) =>
+  request.get("/api/tags").expect(status);
 ```
 
 ## Targeting who can see the feature with extra constraints
