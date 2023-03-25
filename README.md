@@ -585,12 +585,12 @@ Test the setting by changing **package.json**
 
 There's a problem in the test command. In the SQL mode the id of article is expected to be `uuid`.
 
-## Injecting real uuid id generator
+## Injecting real UUID generator
 
 ![Id generator](./images/id_generator.png)
 
-We need a type/interface for a generator and multiple implementations.
-This is a similar technique to a repository type/interface and multiple implementations.
+We need a type/interface for a generator with multiple implementations.
+This is a similar technique to a repository type/interface with multiple implementations.
 
 Create **src/uuidGenerator.ts**
 ```typescript
@@ -670,11 +670,14 @@ Change your code, so you can easily inject the config to your application.
 Application should be able to inject the config to the router.
 Remember about changing our component test so that it respects the injection of config.
 
+Hints:
+* you will need to wrap most of the code inside your app and router inside a function
+
 ## Introducing a use case composition root
 
 ![Composition root](./images/composition_root.png)
 
-**src/articleRouter.ts** has 2 responsibilities. It sets up the routes/controllers but also builds a graph of objects.
+**src/articlesRouter.ts** has two responsibilities. It sets up the routes/controllers but also builds a graph of objects.
 Split the graph of objects into a [composition root](https://blog.ploeh.dk/2011/07/28/CompositionRoot/).
 The composition root will assemble all objects and functions to have
 fully functional article actions either in SQL or in-memory mode.
