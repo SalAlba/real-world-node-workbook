@@ -385,7 +385,7 @@ Try to connect to the DB with a client app (e.g. `pgAdmin`).
 
 ## Setting up DB migrations
 
-Create `src/migrate-to-latest.ts` file:
+Create **src/migrate-to-latest.ts** file:
 
 ```typescript
 import * as path from "path";
@@ -526,6 +526,7 @@ Please pay attention to **auto-completion support in the IDE**.
 
 Here's an interesting take on ORMs from the Kysely author who used to work on
 a very popular ORMs `Objection.js`:
+
 ![ORM vs query builder](./images/orm.png)
 
 ## Integration testing SQL repository
