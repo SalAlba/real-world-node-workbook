@@ -207,7 +207,7 @@ articlesRouter.post("/api/articles", async (req, res, next) => {
 });
 ```
 
-To make it easier to implement `createArticle` use case I prepared this test to drive your production code:
+To make it easier to implement `createArticle` use case, I prepared a test to drive your production code:
 
 **src/createArticle.test.ts**
 ```ts
@@ -306,7 +306,7 @@ In the previous test we had to omit `createdAt` and `updatedAt` since they are n
 Create **src/clock.ts**
 ```ts
 export type Clock = () => Date;
-export const now = () => new Date();
+export const clock = () => new Date();
 ```
 This is our production implementation of a current date/time. We can swap this for unit testing purposes. 
 
@@ -808,8 +808,8 @@ Currently, in our system every application service method is a singleton and is 
 
 ```typescript
   const articleRepository = sqlArticleRepository(db);
-  const create = createArticle(articleRepository, articleIdGenerator, now);
-  const update = updateArticle(articleRepository, now);
+  const create = createArticle(articleRepository, articleIdGenerator, clock);
+  const update = updateArticle(articleRepository, clock);
 ```
 First, we construct a singleton article repository that we inject to get a singleton create and update methods.
 
@@ -829,13 +829,13 @@ Then go to **src/articles/application/articlesCompositionRoot.ts** and change a 
 const create = (db: Transaction<DB>) => {
   const articleRepository = sqlArticleRepository(db);
 
-  return createArticle(articleRepository, uuidGenerator, now);
+  return createArticle(articleRepository, uuidGenerator, clock);
 };
 
 const update = (db: Transaction<DB>) => {
   const articleRepository = sqlArticleRepository(db);
 
-  return updateArticle(articleRepository, now);
+  return updateArticle(articleRepository, clock);
 };
 ```
 `create` and `update` are not singletons anymore, but **factory functions** that accept a current **request-scoped transaction** and
