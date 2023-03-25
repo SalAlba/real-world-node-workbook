@@ -57,7 +57,7 @@ What do you think about test and production code sitting next to each other? Hav
 
 ## Understanding pipes and filters architecture
 
-Now that you've seen the application behavior described as tests go to the production code.
+Now that you've seen the application behavior described as tests, go to the production code.
 
 To understand lightweight frameworks like `express` we need to unpack the **pipes and filters architecture**
 
