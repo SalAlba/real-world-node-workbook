@@ -748,7 +748,7 @@ responsibilities:
 
 If you run our component test separately from the other tests, it will accumulate data from the previous test runs.
 
-Where would you clean the test data between the test?
+Where would you clean the test data between the tests? Try to add the cleanup code.
 
 ## Extracting application composition root
 
