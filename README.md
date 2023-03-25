@@ -103,7 +103,7 @@ Now it's your turn. Move all the error handling code to **src/errorHandler.ts**.
 
 ![xtracting domain type](./images/extracting_domain.png)
 
-Move the type for Article into **src/article.ts**. As a bonus we can add **tiny-types** to improve type-level domain vocabulary.
+Move the type for `Article` into **src/article.ts**. As a bonus we can add **tiny-types** to improve type-level domain vocabulary.
 
 ```ts
 export type Tag = string;
@@ -121,8 +121,8 @@ Eventually we'll store data in a real database so a good abstraction will come i
 significant portions of your app without making investments into a DB technology. 
 
 Here's a few hints:
-* article repository should start with clean state in each test
-* all operations should be async so that it's compatible with the real DB repository
+* article repository should start with a clean state in each test
+* all operations should be async so that it's compatible with a real DB repository
 * remove `it.skip` only when you have the previous tests passing 
 
 **src/inMemoryArticleRepository.test.ts**
