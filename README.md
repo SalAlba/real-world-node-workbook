@@ -957,7 +957,7 @@ a more robust way to do it.
 
 Replace our handwritten `ArticleView` with a `zod` type.
 
-## Post/Redirect/Get pattern
+## Applying Post/Redirect/Get pattern
 
 ![Post/Redirect/Get Pattern](./images/prg.png)
 
@@ -970,7 +970,7 @@ res.redirect(`/api/articles/${slug}`);
 This will set the **HTTP code to 302** and set the **Location header** to the new resource the client can GET. Most HTTP clients can
 follow the 302 response and read the Location header automatically before making another request.
 
-Go to **app.test.ts** and fix all operations that should redirect:
+Go to **src/app.test.ts** and fix all operations that should redirect:
 ```typescript
    const createdArticle = await createArticle(request, {
       ...
@@ -999,7 +999,7 @@ You can use it like this:
 ```typescript
 app.use(articlePath.pattern, handler);
 
-res.redirect(articlesPath({slug: "myslug"}));
+res.redirect(articlePath({slug: "myslug"}));
 ```
 
 Now we can prevent 404s at compile time.
