@@ -685,10 +685,10 @@ fully functional article actions either in SQL or in-memory mode.
 Here's the structure we want to have in **src/app.ts**
 ```typescript
 const db = config.DATABASE_URL ? createDb(config.DATABASE_URL) : null;
-const articleActions = db
+const articleDeps = db
     ? sqlArticlesCompositionRoot(db)
     : inMemoryArticlesCompositionRoot();
-app.use(createArticlesRouter(articleActions));
+app.use(createArticlesRouter(articleDeps));
 ```
 
 And the actual router should accept all the actions and repository as dependencies:
@@ -707,6 +707,9 @@ export const createArticlesRouter = ({
     // const existingArticle = await articleRepository.findBySlug(slug);
 };
 ```
+
+Hints:
+* create `CreateArticle` and `UpdateArticle` types in **createArticle.ts** and **updateArticle.ts**
 
 ## Organizing code into directories: feature-driven architecture
 
