@@ -35,7 +35,7 @@ Go to **package.json** and check the available scripts.
 Run `npm i --omit=dev` to install all production dependencies that would be needed to build a full version of the Real-World App.
 In this course we're not going to use all of them though.
 
-Check the **size of all production deps** with `du -sh node_modules`. As you can see we should cap around 15MB. This is because
+Check the **size of all production deps** with `du -sh node_modules`. As you can see we should cap around 20MB. This is because
 we avoid using big frameworks bringing lots of transitive dependencies. 
 
 Every line of [code is a liability](https://wiki.c2.com/?SoftwareAsLiability), and we'll be very picky about **choosing only the things that we need**. 
