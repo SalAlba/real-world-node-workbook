@@ -876,6 +876,23 @@ Where would you put it in our model in code?
 
 As you're deciding where to put favorite, a trainer will provide some code.
 
+## Extracting domain logic
+
+In this example a domain logic is very simple and can be inlined inside the application logic. For learning purposes
+we can still try to extract two doman capabilities to increment and decrement count.
+
+We have a few options:
+* introducing an object with increment/decrement methods
+* introducing two functions for increment and decrement
+
+For now let's create two functions:
+* `const increment = (previous: FavoriteCount): FavoriteCount => {}`
+* `const decrement = (previous: FavoriteCount): FavoriteCount => {}`
+
+One other modelling option is a comparision between state modification and event generation.
+* `const increment = (previous: FavoriteCount): FavoriteIncremented`
+* `const decrement = (previous: FavoriteCount): FavoriteDecremented`
+
 ## Introducing internal read model
 
 ![Write model vs read model](./images/read_model.png)
