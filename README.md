@@ -2,7 +2,7 @@
 
 In this workshop we'll be building parts of the [Real-World App project](https://github.com/gothinkster/realworld) backend.
 
-You can check the full app with UI and backend here: https://hyperapp.netlify.app/
+You can check the full app with UI and backend here: https://demo.realworld.io/
 
 In this course we'll focus on 3 parts of the app:
 
