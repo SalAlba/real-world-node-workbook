@@ -867,7 +867,7 @@ After passing current `tx` to the factory functions we'll get transactional `cre
 
 ![Favorite](images/favorite.png)
 
-If you check https://hyperapp.netlify.app/ there's a favorite/unfavorite icon. In our  simplified version we don't track
+If you check https://demo.realworld.io/ there's a favorite/unfavorite icon. In our  simplified version we don't track
 who favorited the article, just the total count. 
 
 Where would you store the total count of favorites for an article?
