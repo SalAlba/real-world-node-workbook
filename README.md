@@ -762,7 +762,7 @@ Note: it's a common misconception that we can only have one composition root. Bu
 most non-trivial apps it's typical to have **a composition root per module** and then some
 **root-level composition root** one level above.
 
-## Introducing transactions
+## Introducing transactions [transactions]
 
 ![Transaction boundary](./images/transaction_boundary.png)
 
@@ -863,7 +863,7 @@ export const sqlArticlesCompositionRoot = (
 `withTxDb` will create a request scope for each invocation of `create/update` and inject a new transaction on each request.
 After passing current `tx` to the factory functions we'll get transactional `create` and `update`.
 
-## Deciding where to put favorites count
+## Deciding where to put favorites count [favorites]
 
 ![Favorite](images/favorite.png)
 
@@ -893,7 +893,7 @@ One other modelling option is a comparision between state modification and event
 * `const increment = (previous: FavoriteCount): FavoriteIncremented`
 * `const decrement = (previous: FavoriteCount): FavoriteDecremented`
 
-## Introducing internal read model
+## Introducing internal read model [read_model]
 
 ![Write model vs read model](./images/read_model.png)
 
@@ -928,7 +928,7 @@ The best treatment of read models I found comes from [this book](https://matthia
 In the favorites module replace the dependency on the article repository with the article read model.
 Run your tests to verify if everything works both with SQL and in-memory variants.
 
-## Implementing view model (external read model)
+## Implementing view model (external read model) [view_model]
 
 Add `favoritesCount` file in **src/app.test.ts**: 
 ```typescript
