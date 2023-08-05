@@ -963,6 +963,18 @@ export type ArticleReadModel = {
 Start by implementing the SQL repository. You can also try to implement the in-memory version.
 Together we'll live code the solution for plugging it into our composition roots.
 
+## Refactoring read model [read_model_refactoring]
+
+![Building blocks](https://github.com/deeperjs/real-world-node-workbook/assets/1394682/a1a32e42-2901-4cc6-a518-4de1d09d49b8)
+
+In the preview exercise we put the read model and view model together. Since they serve two different purposes we can split them into `ArticleReadModel` and `ArticleViewModel`. Additionally we can move the interface/type for the models into the application layer. 
+
+Our implementation of the read model used the same underlying table as the write model. It's the simplest approach to read models however some
+purists don't like this approach. To further decouple write and read model we could:
+* create a database view for the read model
+* emit events from the write model and build up event-driven read model from them
+
+
 ## Parsing output data
 
 ![Robustness principle](./images/robustness.png)
