@@ -965,7 +965,8 @@ Together we'll live code the solution for plugging it into our composition roots
 
 ## Refactoring read model [read_model_refactoring]
 
-![Building blocks](https://github.com/deeperjs/real-world-node-workbook/assets/1394682/a1a32e42-2901-4cc6-a518-4de1d09d49b8)
+![Building blocks](https://github.com/deeperjs/real-world-node-workbook/assets/1394682/5b089d60-1b01-4f04-af11-a2d11dce3b49)
+
 
 In the preview exercise we put the read model and view model together. Since they serve two different purposes we can split them into `ArticleReadModel` and `ArticleViewModel`. Additionally we can move the interface/type for the models into the application layer. 
 
